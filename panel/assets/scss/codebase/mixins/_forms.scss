@@ -1,0 +1,160 @@
+//
+// Forms
+// --------------------------------------------------
+
+@mixin form-validation-state($state, $color) {
+    .#{$state}-feedback {
+        display: none;
+        margin-top: .25rem;
+        font-size: .875rem;
+        color: $color;
+    }
+
+    .#{$state}-tooltip {
+        position: absolute;
+        top: 100%;
+        z-index: 5;
+        display: none;
+        width: 250px;
+        padding: .5rem;
+        margin-top: .1rem;
+        font-size: .875rem;
+        line-height: 1;
+        color: #fff;
+        background-color: rgba($color,.8);
+        border-radius: .2rem;
+    }
+
+    .form-control,
+    .custom-select {
+        .was-validated &:#{$state},
+        &.is-#{$state} {
+            border-color: $color;
+
+            ~ .invalid-feedback,
+            ~ .invalid-tooltip {
+                display: block;
+            }
+        }
+    }
+
+    .form-check-input {
+        .was-validated &:#{$state},
+        &.is-#{$state} {
+            + .form-check-label {
+                color: $color;
+            }
+        }
+    }
+
+    // custom radios and checks
+    .custom-control-input {
+        .was-validated &:#{$state},
+        &.is-#{$state} {
+            ~ .custom-control-indicator {
+                background-color: rgba($color, .25);
+            }
+            ~ .custom-control-description {
+                color: $color;
+            }
+        }
+    }
+
+    // custom file
+    .custom-file-input {
+        .was-validated &:#{$state},
+        &.is-#{$state} {
+            ~ .custom-file-control {
+                border-color: $color;
+
+                &::before { border-color: inherit; }
+            }
+        }
+    }
+
+    // Codebase custom
+    .is-#{$state} {
+        .form-control {
+            border-color: $color;
+        }
+
+        .form-check-input {
+            .form-check-label {
+                color: $color;
+            }
+        }
+
+        .custom-control-input {
+            .custom-control-indicator {
+                background-color: rgba($color, .25);
+            }
+
+            .custom-control-description {
+                color: $color;
+            }
+        }
+
+        .custom-file-input {
+            .custom-file-control {
+                border-color: $color;
+
+                &::before { border-color: inherit; }
+            }
+        }
+
+        .invalid-feedback,
+        .invalid-tooltip {
+            display: block;
+        }
+    }
+}
+
+@mixin form-control-material-focus-variant($color) {
+    &:focus {
+        box-shadow: 0 2px $color;
+
+        + label {
+            color: $color;
+        }
+
+        ~ .input-group-addon {
+            color: $color;
+            box-shadow: 0 2px $color;
+        }
+    }
+}
+
+@mixin form-validation-state-material($state, $color) {
+    .is-#{$state} .form-material {
+        > .form-control {
+            box-shadow: 0 1px 0 $color;
+
+            &:focus {
+                box-shadow: 0 2px $color;
+
+                + label {
+                    color: $color;
+                }
+
+                ~ .input-group-addon {
+                    color: $color;
+                    box-shadow: 0 2px $color;
+                }
+            }
+
+            ~ .input-group-addon {
+                color: $color;
+                box-shadow: 0 1px 0 $color;
+            }
+        }
+
+        ~ .invalid-feedback,
+        ~ .invalid-tooltip {
+            display: block;
+        }
+
+        label {
+            color: $color;
+        }
+    }
+}

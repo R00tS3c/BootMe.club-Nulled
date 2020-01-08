@@ -1,0 +1,22 @@
+//
+// Pagination
+// --------------------------------------------------
+
+.page-link {
+    height: $pbf-height;
+    line-height: $pbf-line-height;
+    font-size: $pbf-font-size;
+    font-weight: 600;
+
+    .pagination-lg & {
+        height: $pbf-height-lg;
+        line-height: $pbf-line-height-lg;
+        font-size: $pbf-font-size-lg;
+    }
+
+    .pagination-sm & {
+        height: $pbf-height-sm;
+        line-height: $pbf-line-height-sm;
+        font-size: $pbf-font-size-sm;
+    }
+}

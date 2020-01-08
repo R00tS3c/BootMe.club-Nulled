@@ -1,0 +1,2 @@
+ERROR: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: YES) - /panel/login.php at Sunday 22nd of September, 2019, 05:53:23 PM
+ERROR: SQLSTATE[HY000] [1049] Unknown database 'sst' - /panel/login.php at Sunday 22nd of September, 2019, 05:54:59 PM
